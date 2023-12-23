@@ -4,6 +4,10 @@ import { VHover } from 'vuetify/lib/components/index.mjs';
 
 const { propsColor, n } =  defineProps(['isWithColor', 'n']);
 
+const copyUrl = async(url) => {
+    await navigator.clipboard.writeText(url);
+}
+
 
 </script>
 
@@ -14,9 +18,8 @@ const { propsColor, n } =  defineProps(['isWithColor', 'n']);
     <VCard
     :elevetion="isHovering ? 12 : 2"
     v-bind="props"
-    @click="isHovering = !isHovering"
+    @click="copyUrl(`https://picsum.photos/500/300?image=${n * 5 + 10}${propsColor ? '' : '&grayscale'}`)"
     >
-    <h1>{{n.n}}</h1>
         <VImg
             :src="`https://picsum.photos/500/300?image=${n * 5 + 10}${propsColor ? '' : '&grayscale'}`"
             :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}${propsColor ? '' : '&grayscale'}`"
