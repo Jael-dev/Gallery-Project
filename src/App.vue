@@ -1,5 +1,16 @@
+<script setup>
+import Sidebar from './components/Sidebar.vue';
+</script>
+
 <template>
-  <div></div>
+  <VApp>
+    <Sidebar />
+    <VMain>
+      
+    </VMain>
+  </VApp>
 </template>
+
+
 
 
